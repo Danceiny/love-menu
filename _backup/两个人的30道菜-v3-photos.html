@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>她的小灶台 · 两个人的30道菜</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='9' width='16' height='11' rx='2' fill='%23C2402E'/%3E%3Crect x='6' y='11' width='4' height='7' rx='1' fill='%23FFFDF7'/%3E%3Crect x='14' y='11' width='4' height='7' rx='1' fill='%234A7C59'/%3E%3Cpath d='M7 5c0-1.5 1-2 1.5-3M12 5c0-1.5 1-2 1.5-3M17 5c0-1.5 1-2 1.5-3' stroke='%23D9A441' stroke-width='1.4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+/* ===== Token ===== */
+:root{
+  --bg:#F6F0E6;
+  --paper:#FFFDF7;
+  --ink:#3A2B21;
+  --ink-soft:#7A6A58;
+  --ink-faint:#A89884;
+  --red:#C2402E;
+  --red-deep:#9C2F20;
+  --red-soft:#F7E3DE;
+  --green:#4A7C59;
+  --green-deep:#386145;
+  --green-soft:#E2EDE4;
+  --gold:#D9A441;
+  --gold-deep:#B9842C;
+  --line:#E5D9C8;
+  --serif:"Noto Serif SC","Songti SC","SimSun",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --shadow:0 2px 10px rgba(58,43,33,.08);
+  --shadow-lg:0 10px 30px rgba(58,43,33,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:16px;color:var(--ink)}
+h1,h2,h3{font-family:var(--serif);font-weight:700}
+
+/* ===== 顶部 Hero ===== */
+.hero{
+  position:relative;
+  min-height:480px;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  background:#2E241C;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('assets/hero.jpg') center 62% / cover no-repeat;
+}
+.hero::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(46,36,28,.42) 0%,rgba(46,36,28,.28) 38%,rgba(46,36,28,.88) 100%);
+}
+.hero-inner{
+  position:relative;z-index:2;
+  width:100%;max-width:1080px;
+  margin:0 auto;
+  padding:120px 22px 30px;
+  color:#FBF5EA;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;letter-spacing:.14em;
+  color:#EBCB8F;
+  margin-bottom:14px;
+}
+.hero-tag::before{content:"";width:22px;height:2px;background:var(--gold);border-radius:2px}
+.hero h1{
+  font-size:clamp(34px,7vw,58px);
+  font-weight:900;
+  letter-spacing:.04em;
+  line-height:1.15;
+  text-shadow:0 2px 18px rgba(0,0,0,.35);
+}
+.hero-sub{
+  margin-top:10px;
+  font-size:clamp(14px,2.4vw,17px);
+  color:#E9DFC9;
+  max-width:560px;
+  letter-spacing:.02em;
+}
+.hero-stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:26px;
+}
+.hstat{
+  background:rgba(251,245,234,.14);
+  border:1px solid rgba(251,245,234,.22);
+  backdrop-filter:blur(4px);
+  border-radius:12px;
+  padding:10px 16px;
+  min-width:118px;
+}
+.hstat .num{
+  font-family:var(--serif);
+  font-size:24px;font-weight:900;
+  color:#FFE7B8;
+  line-height:1.2;
+}
+.hstat .lab{font-size:12px;color:#DCCFB4;margin-top:2px}
+.hero-progress{
+  margin-top:18px;
+  max-width:520px;
+}
+.prog-track{
+  height:8px;border-radius:8px;
+  background:rgba(251,245,234,.18);
+  overflow:hidden;
+}
+.prog-fill{
+  height:100%;width:0%;
+  border-radius:8px;
+  background:linear-gradient(90deg,var(--red),var(--gold));
+  transition:width .6s ease;
+}
+.prog-lab{
+  margin-top:8px;font-size:12px;color:#DCCFB4;
+  display:flex;justify-content:space-between;
+}
+
+/* ===== 顶栏 Tab ===== */
+.tabs{
+  position:sticky;top:0;z-index:50;
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.tabs-inner{
+  max-width:1080px;margin:0 auto;
+  display:flex;
+  padding:0 14px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.tab{
+  flex:1 0 auto;
+  padding:14px 18px;
+  font-size:15px;font-weight:500;
+  color:var(--ink-soft);
+  border-bottom:3px solid transparent;
+  white-space:nowrap;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  min-height:48px;
+}
+.tab svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tab.on{color:var(--red-deep);border-bottom-color:var(--red)}
+.tab .cnt{
+  font-size:11px;font-weight:700;
+  background:var(--red-soft);color:var(--red-deep);
+  border-radius:20px;padding:1px 7px;
+}
+
+/* ===== 主区 ===== */
+main{max-width:1080px;margin:0 auto;padding:26px 18px 60px}
+.view{display:none}
+.view.on{display:block;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.view-head{margin-bottom:20px}
+.view-head h2{
+  font-size:clamp(22px,4vw,28px);
+  font-weight:900;
+  letter-spacing:.02em;
+}
+.view-head p{color:var(--ink-soft);font-size:14px;margin-top:6px;max-width:640px}
+
+/* ===== 菜单视图 ===== */
+.menu-toolbar{
+  display:flex;flex-wrap:wrap;gap:10px;
+  align-items:center;
+  margin-bottom:18px;
+}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.fbtn{
+  padding:8px 14px;border-radius:999px;
+  border:1px solid var(--line);
+  background:var(--paper);
+  font-size:13.5px;color:var(--ink-soft);
+  transition:all .15s;
+}
+.fbtn.on{background:var(--ink);color:#FBF5EA;border-color:var(--ink)}
+.fbtn .n{opacity:.7;font-size:12px;margin-left:3px}
+.search{
+  flex:1 1 200px;min-width:180px;
+  display:flex;align-items:center;gap:8px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:7px 14px;
+}
+.search svg{width:16px;height:16px;stroke:var(--ink-faint);fill:none;stroke-width:1.8;stroke-linecap:round}
+.search input{border:none;outline:none;background:none;flex:1;font-size:16px}
+.surprise{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--red);color:#FFF7EC;
+  border-radius:999px;
+  padding:10px 18px;
+  font-size:14px;font-weight:700;
+  box-shadow:0 4px 14px rgba(194,64,46,.35);
+  transition:transform .15s;
+}
+.surprise:active{transform:scale(.97)}
+.surprise svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.dish-grid{
+  display:grid;
+  grid-template-columns:repeat(1,1fr);
+  gap:14px;
+}
+.dish{
+  position:relative;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px 18px 16px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+  display:flex;flex-direction:column;gap:8px;
+  cursor:pointer;
+}
+.dish:active{transform:scale(.99)}
+.dish::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:5px;
+  background:var(--cat-color,var(--red));
+}
+.dish .row1{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.dish-thumb{
+  width:100%;height:150px;object-fit:cover;
+  border-radius:12px;
+  margin:-18px -18px 0;
+  display:block;
+}
+.dish-thumb.ph{
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--green-soft),var(--red-soft));
+  color:var(--ink-faint);font-family:var(--serif);font-size:26px;font-weight:900;
+}
+.cat-tag{
+  font-size:11px;font-weight:700;letter-spacing:.06em;
+  padding:3px 9px;border-radius:6px;
+  color:#fff;
+  background:var(--cat-color,var(--red));
+}
+.price-block{
+  display:flex;flex-direction:column;align-items:flex-end;gap:3px;
+  position:relative;
+}
+.fee-row{
+  display:flex;align-items:center;gap:6px;
+}
+.dish-price{
+  font-family:var(--serif);
+  color:var(--gold-deep);
+  font-weight:900;
+  font-size:17px;
+  white-space:nowrap;
+}
+.dish-price small{font-size:11px;color:var(--ink-faint);font-weight:500;font-family:var(--sans)}
+.ing-price{
+  font-size:12px;color:var(--green-deep);
+  font-weight:700;
+  white-space:nowrap;
+  background:var(--green-soft);
+  padding:1px 7px;border-radius:6px;
+}
+.edit-price{
+  position:absolute;top:-4px;right:-4px;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--paper);
+  border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink-faint);
+  opacity:0;transform:scale(.8);
+  transition:all .15s;
+  z-index:3;
+}
+.edit-price svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dish:hover .edit-price,.dish:focus-within .edit-price{opacity:1;transform:scale(1)}
+.edit-price:hover{color:var(--red-deep);border-color:var(--red)}
+.dish-name{
+  font-family:var(--serif);
+  font-size:19px;font-weight:900;
+  letter-spacing:.03em;
+  line-height:1.3;
+}
+.dish-note{font-size:13px;color:var(--ink-soft);min-height:20px}
+.dish .row3{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:10px;border-top:1px dashed var(--line);
+}
+.diff{display:flex;gap:3px}
+.diff i{
+  width:14px;height:5px;border-radius:3px;
+  background:var(--line);
+}
+.diff i.on{background:var(--cat-color,var(--gold))}
+.diff-lab{font-size:11px;color:var(--ink-faint);margin-left:6px}
+.dish-state{
+  font-size:12px;
+  color:var(--ink-faint);
+  display:flex;align-items:center;gap:5px;
+}
+.dish-state.done{color:var(--green-deep);font-weight:700}
+.dish-state svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dish .eat-btn{
+  position:absolute;right:14px;bottom:14px;
+  background:var(--ink);color:#FBF5EA;
+  font-size:12px;font-weight:700;
+  border-radius:999px;padding:6px 13px;
+  opacity:0;transform:translateY(4px);
+  transition:all .15s;
+}
+.dish:hover .eat-btn,.dish:focus-within .eat-btn{opacity:1;transform:none}
+.dish.eaten{border-color:transparent;background:linear-gradient(180deg,#FFFDF7,#F4F1E7)}
+.dish.eaten .dish-state{color:var(--green-deep)}
+
+.empty{
+  text-align:center;color:var(--ink-faint);
+  padding:50px 20px;font-size:14px;
+}
+.empty svg{width:40px;height:40px;stroke:var(--line);fill:none;stroke-width:1.4;margin:0 auto 10px;display:block}
+
+/* ===== 记录视图 ===== */
+.record-layout{display:grid;grid-template-columns:1fr;gap:22px}
+.checkin-card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+.checkin-card h3{
+  font-size:18px;font-weight:900;
+  margin-bottom:4px;
+}
+.checkin-card .sub{font-size:13px;color:var(--ink-soft);margin-bottom:16px}
+.form-row{margin-bottom:14px}
+.form-row label{
+  display:block;font-size:13px;font-weight:700;color:var(--ink-soft);
+  margin-bottom:6px;
+}
+.form-row select,.form-row input[type=date],.form-row input[type=number],.form-row input[type=text]{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#FDFAF4;
+  padding:10px 12px;
+  outline:none;
+}
+.form-row select:focus,.form-row input:focus{border-color:var(--gold-deep)}
+.stars{display:flex;gap:6px}
+.star{
+  width:34px;height:34px;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .12s;
+}
+.star svg{width:26px;height:26px;fill:var(--line);transition:fill .12s}
+.star.on svg{fill:var(--gold)}
+.star:active{transform:scale(1.15)}
+.form-row textarea{
+  width:100%;border:1px solid var(--line);border-radius:10px;
+  background:#FDFAF4;padding:10px 12px;outline:none;
+  resize:vertical;min-height:64px;
+}
+.price-hint{
+  display:flex;flex-direction:column;gap:3px;
+  background:var(--red-soft);
+  border-radius:10px;padding:10px 14px;
+  font-size:13.5px;color:var(--red-deep);
+}
+.price-hint .row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.price-hint b{font-family:var(--serif);font-size:17px}
+.price-hint .ing{color:var(--green-deep);background:var(--green-soft);border-radius:6px;padding:1px 8px;font-size:12.5px}
+.price-hint .total{color:var(--ink-soft);font-size:12.5px}
+.btn-primary{
+  width:100%;
+  background:var(--red);color:#FFF7EC;
+  border-radius:12px;
+  padding:13px;
+  font-size:16px;font-weight:700;
+  box-shadow:0 4px 14px rgba(194,64,46,.3);
+  transition:transform .12s;
+}
+.btn-primary:active{transform:scale(.98)}
+.btn-primary:disabled{background:#CBB9A5;box-shadow:none;cursor:not-allowed}
+
+.records h3{
+  font-size:18px;font-weight:900;margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+}
+.records h3 .n{font-size:13px;font-weight:700;color:var(--green-deep);background:var(--green-soft);border-radius:20px;padding:2px 10px}
+.timeline{position:relative;padding-left:22px}
+.timeline::before{
+  content:"";position:absolute;left:6px;top:6px;bottom:6px;
+  width:2px;background:var(--line);border-radius:2px;
+}
+.tl-item{position:relative;margin-bottom:16px}
+.tl-item::before{
+  content:"";position:absolute;left:-21px;top:5px;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--paper);border:2.5px solid var(--gold);
+}
+.tl-card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:13px 15px;
+  box-shadow:var(--shadow);
+}
+.tl-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.tl-name{font-family:var(--serif);font-weight:900;font-size:16px}
+.tl-date{font-size:12px;color:var(--ink-faint)}
+.tl-mid{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap}
+.tl-cat{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;color:#fff;background:var(--cat-color,var(--red))}
+.tl-stars{display:inline-flex;gap:2px;align-items:center}
+.tl-stars svg{width:14px;height:14px;fill:var(--gold)}
+.tl-stars svg.off{fill:var(--line)}
+.tl-fees{display:inline-flex;gap:6px;margin-left:auto}
+.tl-fee{font-size:12.5px;font-weight:700;color:var(--gold-deep)}
+.tl-fee.ing{color:var(--green-deep);font-weight:700}
+.tl-comment{font-size:13.5px;color:var(--ink-soft);margin-top:6px;line-height:1.55}
+.tl-actions{margin-top:8px;display:flex;gap:14px}
+.tl-actions button{
+  font-size:12px;color:var(--ink-faint);
+  display:inline-flex;align-items:center;gap:4px;
+}
+.tl-actions button:hover{color:var(--red-deep)}
+.tl-actions svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+
+/* ===== 统计视图 ===== */
+.stat-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
+.scard{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:16px;
+  box-shadow:var(--shadow);
+}
+.scard .num{font-family:var(--serif);font-size:26px;font-weight:900;line-height:1.2}
+.scard .num.gold{color:var(--gold-deep)}
+.scard .num.red{color:var(--red-deep)}
+.scard .num.green{color:var(--green-deep)}
+.scard .lab{font-size:12.5px;color:var(--ink-soft);margin-top:3px}
+.chart-wrap{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px 10px;
+  box-shadow:var(--shadow);
+  margin-bottom:16px;
+}
+.chart-wrap h4{
+  font-size:15px;font-weight:700;
+  padding:0 6px 6px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.chart-wrap h4 .hint{font-size:12px;color:var(--ink-faint);font-weight:500}
+.chart{width:100%;height:260px}
+
+/* ===== 加菜视图 ===== */
+.add-layout{display:grid;grid-template-columns:1fr;gap:22px}
+.add-card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+.add-card h3{font-size:18px;font-weight:900;margin-bottom:4px}
+.add-card .sub{font-size:13px;color:var(--ink-soft);margin-bottom:16px}
+.form-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.form-grid .form-row{margin-bottom:0}
+.diff-pick{display:flex;gap:8px}
+.diff-pick button{
+  flex:1;border:1px solid var(--line);border-radius:10px;
+  background:#FDFAF4;padding:9px;font-size:13.5px;color:var(--ink-soft);
+}
+.diff-pick button.on{border-color:var(--green);color:var(--green-deep);background:var(--green-soft);font-weight:700}
+.cat-pick{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cat-pick button{
+  border:1px solid var(--line);border-radius:10px;
+  background:#FDFAF4;padding:11px;font-size:13.5px;color:var(--ink-soft);
+  text-align:center;
+}
+.cat-pick button.on{border-color:var(--cat-color,var(--red));color:var(--red-deep);background:var(--red-soft);font-weight:700}
+.btn-dark{
+  width:100%;background:var(--ink);color:#FBF5EA;
+  border-radius:12px;padding:13px;font-size:16px;font-weight:700;
+  transition:transform .12s;
+}
+.btn-dark:active{transform:scale(.98)}
+.data-card{font-size:13.5px;color:var(--ink-soft)}
+.data-actions{display:flex;gap:10px;margin-top:14px}
+.data-actions button{
+  flex:1;border:1px solid var(--line);border-radius:10px;
+  background:#FDFAF4;padding:11px;font-size:14px;font-weight:700;color:var(--ink);
+}
+.data-actions button:hover{border-color:var(--gold-deep);color:var(--gold-deep)}
+.notice{
+  margin-top:14px;padding:11px 14px;
+  border-radius:10px;background:var(--green-soft);
+  color:var(--green-deep);font-size:12.5px;line-height:1.6;
+}
+
+/* ===== 菜品详情弹层 ===== */
+.detail-gallery{position:relative;margin:-4px 0 14px}
+.detail-main{
+  width:100%;height:280px;object-fit:cover;
+  border-radius:14px;display:block;
+  background:var(--bg);
+}
+.detail-main.ph{
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--green-soft),var(--red-soft));
+  color:var(--ink-faint);font-family:var(--serif);font-size:44px;font-weight:900;
+}
+.detail-thumbs{display:flex;gap:8px;margin-top:8px}
+.detail-thumbs img{
+  width:64px;height:64px;object-fit:cover;border-radius:10px;
+  cursor:pointer;border:2px solid transparent;opacity:.75;
+}
+.detail-thumbs img.on{border-color:var(--gold);opacity:1}
+.detail-thumbs .ph-thumb{
+  width:64px;height:64px;border-radius:10px;cursor:pointer;
+  border:2px solid transparent;opacity:.75;
+  background:linear-gradient(135deg,var(--green-soft),var(--red-soft));
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink-faint);font-family:var(--serif);font-weight:900;font-size:18px;
+}
+.detail-thumbs .ph-thumb.on{border-color:var(--gold);opacity:1}
+.detail-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.detail-head h3{font-size:22px;font-weight:900}
+.detail-meta{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  font-size:13px;color:var(--ink-soft);
+  margin-bottom:12px;
+}
+.detail-meta .d-price{color:var(--gold-deep);font-weight:700;font-family:var(--serif);font-size:16px}
+.detail-meta .d-ing{color:var(--green-deep);font-weight:700;background:var(--green-soft);padding:1px 8px;border-radius:6px}
+.detail-note{
+  font-size:13.5px;color:var(--ink-soft);
+  background:var(--bg);border-radius:10px;padding:9px 12px;margin-bottom:14px;
+}
+.sec-title{
+  font-size:14px;font-weight:700;margin:14px 0 8px;
+  display:flex;align-items:center;gap:6px;
+}
+.sec-title svg{width:15px;height:15px;stroke:var(--gold-deep);fill:none;stroke-width:2;stroke-linecap:round}
+.ing-list{display:flex;flex-wrap:wrap;gap:7px}
+.ing-chip{
+  font-size:12.5px;color:var(--ink);
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:999px;padding:4px 11px;
+}
+.step-list{counter-reset:step;list-style:none}
+.step-list li{
+  position:relative;
+  padding:6px 0 6px 34px;
+  font-size:14px;line-height:1.65;color:var(--ink);
+}
+.step-list li::before{
+  counter-increment:step;content:counter(step);
+  position:absolute;left:0;top:8px;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--cat-color,var(--red));color:#fff;
+  font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.btn-checkin{
+  width:100%;margin-top:16px;
+  background:var(--red);color:#FFF7EC;
+  border-radius:12px;padding:13px;
+  font-size:16px;font-weight:700;
+  box-shadow:0 4px 14px rgba(194,64,46,.3);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:transform .12s;
+}
+.btn-checkin:active{transform:scale(.98)}
+.btn-checkin svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ===== 弹层（通用） ===== */
+.modal-mask{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(46,36,28,.5);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-mask.on{display:flex}
+.modal{
+  background:var(--paper);
+  border-radius:18px;
+  max-width:440px;width:100%;
+  padding:24px;
+  box-shadow:var(--shadow-lg);
+  max-height:88vh;overflow-y:auto;
+}
+.modal h3{font-size:20px;font-weight:900;display:flex;align-items:center;gap:8px}
+.modal .close{
+  float:right;width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink-faint);
+  background:var(--bg);
+}
+.modal .close:hover{color:var(--red-deep)}
+.modal .close svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.modal-dish{font-family:var(--serif);font-size:15px;color:var(--ink-soft);margin:2px 0 16px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.two-col .form-row{margin-bottom:0}
+
+/* ===== Toast ===== */
+#toast{
+  position:fixed;left:50%;bottom:30px;z-index:200;
+  transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:#FBF5EA;
+  border-radius:999px;padding:12px 22px;
+  font-size:14px;box-shadow:var(--shadow-lg);
+  opacity:0;pointer-events:none;
+  transition:all .3s ease;
+  max-width:88vw;text-align:center;
+}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+footer{
+  border-top:1px solid var(--line);
+  padding:26px 18px 40px;
+  text-align:center;
+  color:var(--ink-faint);
+  font-size:12.5px;
+  max-width:1080px;margin:0 auto;
+}
+footer .heart{fill:var(--red);width:14px;height:14px;display:inline-block;vertical-align:-2px}
+
+/* ===== 桌面端扩展 ===== */
+@media (min-width:600px){
+  .dish-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-cards{grid-template-columns:repeat(3,1fr)}
+  .record-layout{grid-template-columns:1.05fr .95fr;align-items:start}
+  .add-layout{grid-template-columns:1.1fr .9fr;align-items:start}
+  .form-grid{grid-template-columns:1fr 1fr}
+}
+@media (min-width:1024px){
+  .dish-grid{grid-template-columns:repeat(3,1fr)}
+  .stat-cards{grid-template-columns:repeat(4,1fr)}
+  .hero{min-height:520px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 视图：Hero ===== -->
+<header class="hero">
+  <div class="hero-bg" role="img" aria-label="一桌热气腾腾的家常菜"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">她的小灶台 · 家的烟火气</div>
+    <h1>两个人的 30 道菜</h1>
+    <p class="hero-sub">湘菜的辣，金陵的鲜，川粤的香，都在一张桌上。第一批 30 道，等你一道道解锁。</p>
+    <div class="hero-stats">
+      <div class="hstat"><div class="num" id="hs-unlock">0/30</div><div class="lab">已解锁菜式</div></div>
+      <div class="hstat"><div class="num" id="hs-fee">¥0</div><div class="lab">累计加工费</div></div>
+      <div class="hstat"><div class="num" id="hs-ing">¥0</div><div class="lab">累计食材费</div></div>
+      <div class="hstat"><div class="num" id="hs-times">0</div><div class="lab">一起吃饭次数</div></div>
+    </div>
+    <div class="hero-progress">
+      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+      <div class="prog-lab"><span id="progLab">解锁进度</span><span id="progPct">0%</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 视图：导航 ===== -->
+<nav class="tabs" aria-label="主导航">
+  <div class="tabs-inner" id="tabs">
+    <button class="tab on" data-view="menu">
+      <svg viewBox="0 0 24 24"><path d="M4 19V5a1 1 0 0 1 1-1h9l6 6v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z"/><path d="M14 4v6h6"/><path d="M9 13v4M6.5 15h5"/></svg>
+      菜单 <span class="cnt" id="tabMenuCnt">30</span>
+    </button>
+    <button class="tab" data-view="record">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+      吃菜记录 <span class="cnt" id="tabRecordCnt">0</span>
+    </button>
+    <button class="tab" data-view="stats">
+      <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M21 20H3"/></svg>
+      小账本
+    </button>
+    <button class="tab" data-view="add">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
+      加菜
+    </button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ===== 视图：菜单 ===== -->
+<section class="view on" id="view-menu">
+  <div class="view-head">
+    <h2>菜单 · 第一批 30 道</h2>
+    <p>点一道菜，记一次饭。加工费是给大厨的心意，食材费由你报销。</p>
+  </div>
+  <div class="menu-toolbar">
+    <div class="filters" id="filters">
+      <button class="fbtn on" data-filter="all">全部 <span class="n" id="fc-all"></span></button>
+      <button class="fbtn" data-filter="done">已解锁 <span class="n" id="fc-done"></span></button>
+    </div>
+    <div class="search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="searchInput" type="search" placeholder="搜菜名…" aria-label="搜索菜品">
+    </div>
+    <button class="surprise" id="surpriseBtn">
+      <svg viewBox="0 0 24 24"><path d="M12 3a5 5 0 0 1 5 5c0 2-1 3-2 4l-1 1.5V16a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2.5L9 12c-1-1-2-2-2-4a5 5 0 0 1 5-5Z"/><path d="M10 20h4"/></svg>
+      今天吃点啥？
+    </button>
+  </div>
+  <div class="dish-grid" id="dishGrid"></div>
+  <div class="empty" id="menuEmpty" style="display:none">
+    <svg viewBox="0 0 24 24"><path d="M4 19V5a1 1 0 0 1 1-1h9l6 6v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z"/></svg>
+    没有找到对应的菜，换个关键词试试。
+  </div>
+</section>
+
+<!-- ===== 视图：记录 ===== -->
+<section class="view" id="view-record">
+  <div class="view-head">
+    <h2>吃菜记录</h2>
+    <p>每一顿饭都值得记下来，以后翻起来都是日子。</p>
+  </div>
+  <div class="record-layout">
+    <div class="checkin-card">
+      <h3>打卡一顿饭</h3>
+      <p class="sub">今天大厨做了什么好吃的？</p>
+      <form id="checkinForm">
+        <div class="form-row">
+          <label for="ciDish">吃了哪道菜</label>
+          <select id="ciDish" required></select>
+        </div>
+        <div class="form-row">
+          <label for="ciDate">日期</label>
+          <input type="date" id="ciDate" required>
+        </div>
+        <div class="form-row">
+          <label>好吃程度</label>
+          <div class="stars" id="ciStars">
+            <button type="button" class="star" data-v="1" aria-label="1星"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 9.7l5.9-.9z"/></svg></button>
+            <button type="button" class="star" data-v="2" aria-label="2星"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 9.7l5.9-.9z"/></svg></button>
+            <button type="button" class="star" data-v="3" aria-label="3星"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 9.7l5.9-.9z"/></svg></button>
+            <button type="button" class="star" data-v="4" aria-label="4星"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 9.7l5.9-.9z"/></svg></button>
+            <button type="button" class="star" data-v="5" aria-label="5星"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 9.7l5.9-.9z"/></svg></button>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="ciComment">一句话点评</label>
+          <textarea id="ciComment" placeholder="例：辣椒炒肉锅气十足，米饭杀手！"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="price-hint" id="ciPriceHint"></div>
+        </div>
+        <button class="btn-primary" type="submit" id="ciSubmit">记下这一顿</button>
+      </form>
+    </div>
+    <div class="records">
+      <h3>吃饭流水账 <span class="n" id="recCount">0 条</span></h3>
+      <div class="timeline" id="timeline"></div>
+      <div class="empty" id="recEmpty">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+        还没有记录。吃了第一顿，就来打卡吧。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 视图：统计 ===== -->
+<section class="view" id="view-stats">
+  <div class="view-head">
+    <h2>小账本</h2>
+    <p>每一分加工费都是爱，每一道菜都是家的记忆。</p>
+  </div>
+  <div class="stat-cards">
+    <div class="scard"><div class="num red" id="st-unlock">0</div><div class="lab">已解锁菜式 / 30</div></div>
+    <div class="scard"><div class="num gold" id="st-fee">¥0</div><div class="lab">累计加工费（给大厨）</div></div>
+    <div class="scard"><div class="num green" id="st-ing">¥0</div><div class="lab">累计食材费（你报销）</div></div>
+    <div class="scard"><div class="num" id="st-times">0</div><div class="lab">吃饭次数</div></div>
+    <div class="scard"><div class="num" id="st-avg">—</div><div class="lab">平均好吃程度</div></div>
+    <div class="scard"><div class="num" id="st-left">0</div><div class="lab">待解锁菜式</div></div>
+  </div>
+  <div class="chart-wrap">
+    <h4>钱包流水 <span class="hint">加工费 + 食材费 按次累计</span></h4>
+    <div class="chart" id="chartFee"></div>
+  </div>
+  <div class="chart-wrap">
+    <h4>最受欢迎的菜 TOP5</h4>
+    <div class="chart" id="chartTop"></div>
+  </div>
+  <div class="chart-wrap">
+    <h4>各菜系解锁进度</h4>
+    <div class="chart" id="chartCat"></div>
+  </div>
+</section>
+
+<!-- ===== 视图：加菜 ===== -->
+<section class="view" id="view-add">
+  <div class="view-head">
+    <h2>加菜</h2>
+    <p>菜单会越来越长，爱也是。第二批、第三批……慢慢加。</p>
+  </div>
+  <div class="add-layout">
+    <div class="add-card">
+      <h3>添加一道新菜</h3>
+      <p class="sub">填好信息，它就会出现在菜单里。</p>
+      <form id="addForm">
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="adName">菜名</label>
+            <input type="text" id="adName" placeholder="例：剁椒蒸芋头" required>
+          </div>
+          <div class="form-row">
+            <label>分类（菜系）</label>
+            <div class="cat-pick" id="catPick"></div>
+          </div>
+          <div class="form-row">
+            <label for="adPrice">加工费（元）</label>
+            <input type="number" id="adPrice" min="1" max="999" step="1" placeholder="给大厨的手工费" required>
+          </div>
+          <div class="form-row">
+            <label for="adIng">预估食材费（元）</label>
+            <input type="number" id="adIng" min="1" max="999" step="1" placeholder="你来报销的食材钱" required>
+          </div>
+          <div class="form-row">
+            <label>难度</label>
+            <div class="diff-pick" id="adDiff">
+              <button type="button" class="on" data-d="1">简单</button>
+              <button type="button" data-d="2">中等</button>
+              <button type="button" data-d="3">硬菜</button>
+            </div>
+          </div>
+        </div>
+        <div class="form-row" style="margin-top:14px">
+          <label for="adNote">一句话备注</label>
+          <textarea id="adNote" placeholder="例：外婆教的方子，记得多放紫苏"></textarea>
+        </div>
+        <div class="form-row">
+          <label for="adRecipe">做法（可选，每行一步）</label>
+          <textarea id="adRecipe" placeholder="例：&#10;1. 五花肉切薄片&#10;2. 大火爆炒…"></textarea>
+        </div>
+        <button class="btn-dark" type="submit" style="margin-top:6px">加入菜单</button>
+      </form>
+    </div>
+    <div class="add-card data-card">
+      <h3 style="font-family:var(--sans);font-weight:700">数据都在本机</h3>
+      <p style="margin-top:6px">所有打卡记录和自定义菜式保存在这台设备的浏览器里。换设备前记得导出备份，换好后导入即可。</p>
+      <div class="data-actions">
+        <button id="exportBtn">导出备份</button>
+        <button id="importBtn">导入备份</button>
+      </div>
+      <input type="file" id="importFile" accept="application/json,.json" style="display:none">
+      <div class="notice">
+        加工费：给大厨的手工费。食材费：你报销的食材钱。想调整价格，在菜单卡片上点价格旁的铅笔图标即可。
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>她的小灶台 · 用一道菜，说一句辛苦了 <svg class="heart" viewBox="0 0 24 24"><path d="M12 20.5S4 15 4 9.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5c0 5.5-8 11-8 11z"/></svg></div>
+  <div style="margin-top:4px">第一批 30 道 · 后续持续更新</div>
+</footer>
+
+<!-- 菜品详情弹层 -->
+<div class="modal-mask" id="detailMask">
+  <div class="modal">
+    <button class="close" id="detailClose" aria-label="关闭"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="detail-gallery">
+      <div class="detail-main" id="dtMain"></div>
+      <div class="detail-thumbs" id="dtThumbs"></div>
+    </div>
+    <div class="detail-head">
+      <h3 id="dtName"></h3>
+      <span class="tl-cat" id="dtCat"></span>
+    </div>
+    <div class="detail-meta" id="dtMeta"></div>
+    <div class="detail-note" id="dtNote"></div>
+    <div class="sec-title"><svg viewBox="0 0 24 24"><path d="M4 7h16M7 7V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v2M6 7l1 13h10l1-13"/></svg>食材清单</div>
+    <div class="ing-list" id="dtIng"></div>
+    <div class="sec-title"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>做法步骤</div>
+    <ol class="step-list" id="dtSteps" style="--cat-color:var(--red)"></ol>
+    <button class="btn-checkin" id="dtCheckin">
+      <svg viewBox="0 0 24 24"><path d="M20 12v7a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7"/><path d="M12 4v12M8 8l4-4 4 4"/></svg>
+      打卡这一顿
+    </button>
+  </div>
+</div>
+
+<!-- 打卡弹层 -->
+<div class="modal-mask" id="modalMask">
+  <div class="modal">
+    <button class="close" id="modalClose" aria-label="关闭"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h3>打卡这一顿</h3>
+    <p class="modal-dish" id="modalDishName"></p>
+    <form id="modalForm">
+      <div class="form-row">
+        <label for="mDate">日期</label>
+        <input type="date" id="mDate" required>
+      </div>
+      <div class="form-row">
+        <label>好吃程度</label>
+        <div class="stars" id="mStars">
+          <button type="button" class="star" data-v="1" aria-label="1星"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 9.7l5.9-.9z"/></svg></button>
+          <button type="button" class="star" data-v="2" aria-label="2星"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 9.7l5.9-.9z"/></svg></button>
+          <button type="button" class="star" data-v="3" aria-label="3星"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 9.7l5.9-.9z"/></svg></button>
+          <button type="button" class="star" data-v="4" aria-label="4星"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 9.7l5.9-.9z"/></svg></button>
+          <button type="button" class="star" data-v="5" aria-label="5星"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 9.7l5.9-.9z"/></svg></button>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="mComment">一句话点评</label>
+        <textarea id="mComment" placeholder="好吃就夸，不好吃也温柔地提意见"></textarea>
+      </div>
+      <div class="form-row">
+        <div class="price-hint" id="mPriceHint"></div>
+      </div>
+      <button class="btn-primary" type="submit">记下这一顿</button>
+    </form>
+  </div>
+</div>
+
+<!-- 调整价格弹层 -->
+<div class="modal-mask" id="editMask">
+  <div class="modal">
+    <button class="close" id="editClose" aria-label="关闭"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h3>调整价格</h3>
+    <p class="modal-dish" id="editDishName"></p>
+    <form id="editForm">
+      <div class="two-col">
+        <div class="form-row">
+          <label for="edPrice">加工费（元）</label>
+          <input type="number" id="edPrice" min="0" max="999" step="1" required>
+        </div>
+        <div class="form-row">
+          <label for="edIng">预估食材费（元）</label>
+          <input type="number" id="edIng" min="0" max="999" step="1" required>
+        </div>
+      </div>
+      <div class="notice" style="margin:4px 0 16px">
+        改价只影响以后打卡记账，已经记下的流水不变。
+      </div>
+      <button class="btn-primary" type="submit">保存价格</button>
+    </form>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<!-- 静态图片注册区（本地相对路径引用，供发布链路扫描 src 属性，页面不可见） -->
+<div aria-hidden="true" style="display:none">
+  <img src="assets/dishes/1-main.jpg" alt="">
+  <img src="assets/dishes/2-main.jpg" alt="">
+  <img src="assets/dishes/3-main.jpg" alt="">
+  <img src="assets/dishes/4-main.jpg" alt="">
+  <img src="assets/dishes/5-main.jpg" alt="">
+  <img src="assets/dishes/6-main.jpg" alt="">
+  <img src="assets/dishes/7-main.jpg" alt="">
+  <img src="assets/dishes/8-main.jpg" alt="">
+  <img src="assets/dishes/9-main.jpg" alt="">
+  <img src="assets/dishes/10-main.jpg" alt="">
+  <img src="assets/dishes/11-main.jpg" alt="">
+  <img src="assets/dishes/12-main.jpg" alt="">
+  <img src="assets/dishes/13-main.jpg" alt="">
+  <img src="assets/dishes/14-main.jpg" alt="">
+  <img src="assets/dishes/15-main.jpg" alt="">
+  <img src="assets/dishes/16-main.jpg" alt="">
+  <img src="assets/dishes/17-main.jpg" alt="">
+  <img src="assets/dishes/18-main.jpg" alt="">
+  <img src="assets/dishes/19-main.jpg" alt="">
+  <img src="assets/dishes/20-main.jpg" alt="">
+  <img src="assets/dishes/21-main.jpg" alt="">
+  <img src="assets/dishes/22-main.jpg" alt="">
+  <img src="assets/dishes/23-main.jpg" alt="">
+  <img src="assets/dishes/24-main.jpg" alt="">
+  <img src="assets/dishes/25-main.jpg" alt="">
+  <img src="assets/dishes/26-main.jpg" alt="">
+  <img src="assets/dishes/27-main.jpg" alt="">
+  <img src="assets/dishes/28-main.jpg" alt="">
+  <img src="assets/dishes/29-main.jpg" alt="">
+  <img src="assets/dishes/30-main.jpg" alt="">
+  <img src="assets/dishes/1-detail.jpg" alt="">
+  <img src="assets/dishes/2-detail.jpg" alt="">
+  <img src="assets/dishes/3-detail.jpg" alt="">
+  <img src="assets/dishes/4-detail.jpg" alt="">
+  <img src="assets/dishes/5-detail.jpg" alt="">
+  <img src="assets/dishes/6-detail.jpg" alt="">
+  <img src="assets/dishes/7-detail.jpg" alt="">
+  <img src="assets/dishes/8-detail.jpg" alt="">
+  <img src="assets/dishes/9-detail.jpg" alt="">
+  <img src="assets/dishes/10-detail.jpg" alt="">
+  <img src="assets/dishes/11-detail.jpg" alt="">
+  <img src="assets/dishes/12-detail.jpg" alt="">
+  <img src="assets/dishes/13-detail.jpg" alt="">
+  <img src="assets/dishes/14-detail.jpg" alt="">
+  <img src="assets/dishes/15-detail.jpg" alt="">
+  <img src="assets/dishes/16-detail.jpg" alt="">
+  <img src="assets/dishes/17-detail.jpg" alt="">
+  <img src="assets/dishes/18-detail.jpg" alt="">
+  <img src="assets/dishes/19-detail.jpg" alt="">
+  <img src="assets/dishes/20-detail.jpg" alt="">
+  <img src="assets/dishes/21-detail.jpg" alt="">
+  <img src="assets/dishes/22-detail.jpg" alt="">
+  <img src="assets/dishes/23-detail.jpg" alt="">
+  <img src="assets/dishes/24-detail.jpg" alt="">
+  <img src="assets/dishes/25-detail.jpg" alt="">
+  <img src="assets/dishes/26-detail.jpg" alt="">
+  <img src="assets/dishes/27-detail.jpg" alt="">
+  <img src="assets/dishes/28-detail.jpg" alt="">
+  <img src="assets/dishes/29-detail.jpg" alt="">
+  <img src="assets/dishes/30-detail.jpg" alt="">
+</div>
+
+<script>
+/* ===== 菜系 ===== */
+const CATS = {
+  xiang:    {label:'湘菜 · 香辣', color:'#C2402E'},
+  nanjing:  {label:'南京菜 · 清淡', color:'#4A7C59'},
+  chuan:    {label:'川菜 · 麻辣', color:'#D46A2A'},
+  yue:      {label:'粤菜 · 清鲜', color:'#2F7E8C'},
+  jiachang: {label:'家常菜 · 暖胃', color:'#B98A2F'}
+};
+const DIFF_LABEL = ['','简单','中等','硬菜'];
+
+/* ===== 数据：第一批 30 道菜（加工费=给大厨 / ing=预估食材费 / imgs=照片 / recipe=菜谱） ===== */
+const RAW_DISHES = [
+  /* 湘菜 · 香辣（8 道） */
+  {id:1, name:'辣椒炒肉', cat:'xiang', price:8, ing:15, diff:1, note:'湘菜的灵魂，锅气就是一切',
+   imgs:['assets/dishes/1-main.jpg','assets/dishes/1-detail.jpg'],
+   recipe:{ing:['五花肉 200g','螺丝椒 3 个','大蒜 3 瓣','豆豉 1 小勺','生抽 1 勺','料酒 1 勺','盐、油'],
+     steps:['五花肉切薄片，青椒斜切成圈，蒜切片','热锅少油，下五花肉煸出油至边缘微焦，烹料酒','下蒜片、豆豉炒香，放青椒大火翻炒','加生抽、少许盐，大火炒至青椒断生即可']}},
+  {id:2, name:'剁椒鱼头', cat:'xiang', price:18, ing:32, diff:3, note:'双椒蒸鱼头，宴客硬菜',
+   imgs:['assets/dishes/2-main.jpg','assets/dishes/2-detail.jpg'],
+   recipe:{ing:['胖头鱼头 1 个（约 800g）','剁椒 3 勺','姜 1 块','蒜 5 瓣','葱 2 根','蒸鱼豉油 2 勺','料酒、盐'],
+     steps:['鱼头对半剖开洗净，用料酒和盐抹匀腌 15 分钟','盘底铺姜片，放上鱼头，铺满剁椒和蒜末','水开后上锅大火蒸 12-15 分钟','出锅淋蒸鱼豉油，撒葱花，浇一勺滚油激香']}},
+  {id:3, name:'小炒黄牛肉', cat:'xiang', price:12, ing:28, diff:2, note:'大火快炒，牛肉要嫩',
+   imgs:['assets/dishes/3-main.jpg','assets/dishes/3-detail.jpg'],
+   recipe:{ing:['牛里脊 250g','青红椒各 1 个','香菜 2 根','蒜 3 瓣','生抽、蚝油、料酒','淀粉、盐、油'],
+     steps:['牛肉逆纹切薄片，加生抽、料酒、淀粉抓匀腌 10 分钟','热锅热油，下牛肉大火快炒至变色即盛出','锅内补油爆香蒜片，下青红椒炒至断生','倒回牛肉，加蚝油、盐，撒香菜段翻匀出锅']}},
+  {id:4, name:'农家小炒肉', cat:'xiang', price:8, ing:16, diff:1, note:'五花肉配螺丝椒，下饭神器',
+   imgs:['assets/dishes/4-main.jpg','assets/dishes/4-detail.jpg'],
+   recipe:{ing:['五花肉 250g','螺丝椒 4 个','蒜 4 瓣','豆豉 1 勺','生抽 1 勺','老抽半勺','盐'],
+     steps:['五花肉切薄片，螺丝椒拍裂切段','干煸螺丝椒至起虎皮，盛出','锅中煸五花肉出油至微卷，下蒜片豆豉炒香','倒回辣椒，加生抽老抽盐，大火翻匀']}},
+  {id:5, name:'长沙口味虾', cat:'xiang', price:20, ing:45, diff:3, note:'夏夜限定的麻辣盛宴',
+   imgs:['assets/dishes/5-main.jpg','assets/dishes/5-detail.jpg'],
+   recipe:{ing:['小龙虾 2 斤','干辣椒、花椒','蒜 1 头、姜','紫苏叶 1 把','啤酒 1 罐','豆瓣酱 1 勺','生抽、糖、盐'],
+     steps:['小龙虾刷洗去虾线，沥干','热油爆香姜蒜、干辣椒、花椒、豆瓣酱','下小龙虾大火翻炒至变红，倒入啤酒没过','加生抽糖盐，焖 15 分钟，撒紫苏叶收汁']}},
+  {id:6, name:'擂辣椒皮蛋', cat:'xiang', price:6, ing:10, diff:1, note:'虎皮青椒擂皮蛋，够味',
+   imgs:['assets/dishes/6-main.jpg','assets/dishes/6-detail.jpg'],
+   recipe:{ing:['青椒 4 个','皮蛋 2 个','蒜 3 瓣','生抽 1 勺','香醋 1 勺','香油、盐'],
+     steps:['青椒去蒂，干煸或煎至虎皮状','皮蛋去壳切瓣，与青椒、蒜一起放入碗中','加生抽香醋香油盐，用擀面杖擂碎拌匀']}},
+  {id:7, name:'酸豆角炒肉末', cat:'xiang', price:8, ing:14, diff:1, note:'酸香微辣，配粥配饭都行',
+   imgs:['assets/dishes/7-main.jpg','assets/dishes/7-detail.jpg'],
+   recipe:{ing:['酸豆角 200g','猪肉末 150g','红椒 1 个','蒜 3 瓣','生抽 1 勺','糖、油'],
+     steps:['酸豆角切碎，泡水去咸后沥干','热油炒散肉末至变色，下蒜末炒香','加酸豆角大火翻炒，加红椒碎','加生抽、少许糖调味，炒至干香']}},
+  {id:8, name:'毛氏红烧肉', cat:'xiang', price:15, ing:30, diff:2, note:'肥而不腻，入口即化',
+   imgs:['assets/dishes/8-main.jpg','assets/dishes/8-detail.jpg'],
+   recipe:{ing:['五花肉 500g','冰糖 30g','姜、葱','八角 2 颗','生抽 1 勺','料酒、盐'],
+     steps:['五花肉切 3cm 方块，冷水下锅焯水去沫','锅中放少许油和冰糖，小火炒出琥珀色糖色','下肉块翻炒上色，烹料酒，加姜葱八角','加热水没过肉，小火炖 40 分钟，大火收汁加盐']}},
+  /* 南京菜 · 清淡（8 道） */
+  {id:9, name:'盐水鸭', cat:'nanjing', price:15, ing:28, diff:2, note:'金陵一绝，咸鲜细嫩',
+   imgs:['assets/dishes/9-main.jpg','assets/dishes/9-detail.jpg'],
+   recipe:{ing:['鸭 半只','花椒 1 勺','盐 2 勺','姜、葱','料酒 1 勺','八角 2 颗'],
+     steps:['盐和花椒小火炒香，晾凉后抹匀鸭身，冷藏腌 4 小时以上','冷水下锅加姜葱料酒八角，煮开后小火 30 分钟','关火浸卤 20 分钟，捞出晾凉斩块']}},
+  {id:10, name:'鸭血粉丝汤', cat:'nanjing', price:10, ing:20, diff:1, note:'汤头鲜美，南京人的乡愁',
+   imgs:['assets/dishes/10-main.jpg','assets/dishes/10-detail.jpg'],
+   recipe:{ing:['鸭血 1 盒','粉丝 1 把','油豆腐 6 块','鸭肠适量','香菜、葱','白胡椒粉、盐','高汤或浓汤宝'],
+     steps:['粉丝泡软，鸭血切块焯水去腥','高汤煮开，下鸭血、油豆腐煮 5 分钟','下粉丝煮软，加盐、白胡椒粉','撒香菜葱花，出锅']}},
+  {id:11, name:'清炖狮子头', cat:'nanjing', price:16, ing:25, diff:3, note:'入口即化，淮扬功夫菜',
+   imgs:['assets/dishes/11-main.jpg','assets/dishes/11-detail.jpg'],
+   recipe:{ing:['猪前腿肉 400g','马蹄 6 个','姜、葱','蛋清 1 个','淀粉 1 勺','盐、青菜'],
+     steps:['猪肉剁成细末（带颗粒感），马蹄切碎','加姜葱水、蛋清、盐、淀粉，顺一个方向搅打上劲','团成大肉丸，下入清汤小火慢炖 1 小时','出锅前烫几棵青菜']}},
+  {id:12, name:'大煮干丝', cat:'nanjing', price:12, ing:18, diff:2, note:'刀工见真章，鸡汤煮干丝',
+   imgs:['assets/dishes/12-main.jpg','assets/dishes/12-detail.jpg'],
+   recipe:{ing:['白豆腐干 3 块','火腿 1 小块','虾仁 6 只','青菜 2 棵','鸡汤 1 碗','盐'],
+     steps:['豆腐干片薄切细丝，开水烫两次去豆腥','鸡汤煮开，下干丝小火煮 5 分钟','加火腿丝、虾仁、青菜煮熟','加盐调味，盛出']}},
+  {id:13, name:'菊花脑蛋汤', cat:'nanjing', price:6, ing:8, diff:1, note:'南京人的夏天，清火解腻',
+   imgs:['assets/dishes/13-main.jpg','assets/dishes/13-detail.jpg'],
+   recipe:{ing:['菊花脑 200g','鸡蛋 2 个','盐','香油'],
+     steps:['菊花脑洗净，鸡蛋打散','水开下菊花脑，煮 1 分钟','淋入蛋液，等蛋花浮起','加盐、滴香油出锅']}},
+  {id:14, name:'糖醋排骨', cat:'nanjing', price:13, ing:26, diff:2, note:'江南甜口，色泽红亮',
+   imgs:['assets/dishes/14-main.jpg','assets/dishes/14-detail.jpg'],
+   recipe:{ing:['肋排 400g','糖 3 勺','香醋 3 勺','生抽 1 勺','料酒 1 勺','姜 3 片','熟芝麻'],
+     steps:['排骨焯水，沥干','少油煎排骨至两面微黄','加料酒、生抽、糖、香醋和热水，小火焖 25 分钟','大火收汁至浓亮，撒白芝麻']}},
+  {id:15, name:'清蒸鲈鱼', cat:'nanjing', price:14, ing:30, diff:2, note:'鲜嫩清淡，原汁原味',
+   imgs:['assets/dishes/15-main.jpg','assets/dishes/15-detail.jpg'],
+   recipe:{ing:['鲈鱼 1 条','姜 1 块','葱 2 根','蒸鱼豉油 2 勺','料酒 1 勺','油'],
+     steps:['鲈鱼两面划刀，抹料酒，铺姜片腌 10 分钟','水开上锅大火蒸 8 分钟，倒掉蒸出的水','铺葱丝姜丝，淋蒸鱼豉油','烧一勺热油浇在葱丝上激香']}},
+  {id:16, name:'荠菜馄饨', cat:'nanjing', price:10, ing:18, diff:1, note:'春天的味道，一口一个',
+   imgs:['assets/dishes/16-main.jpg','assets/dishes/16-detail.jpg'],
+   recipe:{ing:['荠菜 200g','猪肉末 250g','馄饨皮 30 张','紫菜、虾皮','盐、生抽','香油'],
+     steps:['荠菜焯水挤干切碎，与肉末、盐、生抽拌匀成馅','包成馄饨','水开下馄饨，煮至浮起再煮 1 分钟','碗里放紫菜虾皮香油，冲入热汤，盛入馄饨']}},
+  /* 川菜 · 麻辣（6 道） */
+  {id:17, name:'麻婆豆腐', cat:'chuan', price:8, ing:12, diff:1, note:'麻辣鲜香，豆腐嫩滑',
+   imgs:['assets/dishes/17-main.jpg','assets/dishes/17-detail.jpg'],
+   recipe:{ing:['嫩豆腐 1 块','猪肉末 100g','豆瓣酱 1 勺','花椒面 1 小勺','蒜苗 2 根','蒜 3 瓣','淀粉、生抽'],
+     steps:['豆腐切块，盐水焯一下','热油炒散肉末，下豆瓣酱蒜末炒出红油','加热水，下豆腐轻推煮 3 分钟','勾薄芡，撒花椒面和蒜苗段']}},
+  {id:18, name:'水煮牛肉', cat:'chuan', price:16, ing:32, diff:3, note:'红油滚烫，牛肉滑嫩',
+   imgs:['assets/dishes/18-main.jpg','assets/dishes/18-detail.jpg'],
+   recipe:{ing:['牛里脊 300g','豆芽、莴笋','干辣椒、花椒','豆瓣酱 1 勺','蒜末','淀粉、蛋清'],
+     steps:['牛肉切薄片，加淀粉蛋清腌 15 分钟','豆瓣酱炒出红油，加水煮开，烫熟豆芽莴笋铺碗底','汤中下牛肉片滑熟，连汤倒入碗中','撒辣椒面花椒蒜末，浇滚油激香']}},
+  {id:19, name:'宫保鸡丁', cat:'chuan', price:12, ing:20, diff:2, note:'酸甜微辣，鸡丁脆嫩',
+   imgs:['assets/dishes/19-main.jpg','assets/dishes/19-detail.jpg'],
+   recipe:{ing:['鸡胸肉 250g','花生米 1 把','干辣椒 8 个','葱段、蒜','生抽、香醋、糖','淀粉、料酒'],
+     steps:['鸡丁加淀粉料酒腌 10 分钟，调好糖醋汁（生抽醋糖淀粉）','冷油下花生米小火炸香盛出','爆香干辣椒葱蒜，下鸡丁大火炒至变色','倒入料汁炒匀，加花生米翻几下出锅']}},
+  {id:20, name:'回锅肉', cat:'chuan', price:10, ing:18, diff:1, note:'肥而不腻，灯盏窝',
+   imgs:['assets/dishes/20-main.jpg','assets/dishes/20-detail.jpg'],
+   recipe:{ing:['五花肉 300g','蒜苗 3 根','豆瓣酱 1 勺','甜面酱半勺','姜 3 片','生抽'],
+     steps:['五花肉整块冷水下锅煮 20 分钟，晾凉切薄片','小火煸肉片至卷起出油','下豆瓣酱甜面酱姜片炒出红油','下蒜苗段大火翻炒，加生抽出锅']}},
+  {id:21, name:'夫妻肺片', cat:'chuan', price:14, ing:24, diff:2, note:'红油拌肺片，麻辣鲜香',
+   imgs:['assets/dishes/21-main.jpg','assets/dishes/21-detail.jpg'],
+   recipe:{ing:['牛肉 200g','牛肚 200g','红油 3 勺','花椒面 1 小勺','花生碎、芝麻','生抽、香醋、糖','香菜'],
+     steps:['牛肉牛肚煮熟晾凉，切薄片','调红油料汁：生抽、香醋、糖、红油、花椒面','料汁淋在肉片上拌匀','撒花生碎芝麻和香菜']}},
+  {id:22, name:'酸菜鱼', cat:'chuan', price:16, ing:30, diff:3, note:'酸辣开胃，鱼片嫩滑',
+   imgs:['assets/dishes/22-main.jpg','assets/dishes/22-detail.jpg'],
+   recipe:{ing:['草鱼或黑鱼 1 条','酸菜 1 包','干辣椒、花椒','泡椒 5 个','姜蒜','蛋清、淀粉、盐'],
+     steps:['鱼肉片成薄片，加蛋清淀粉盐腌 15 分钟；鱼骨剁块','炒香姜蒜泡椒，下酸菜炒出味，加水煮开','下鱼骨煮 10 分钟，捞入碗底','汤中滑入鱼片煮 30 秒，连汤倒入，撒干辣椒花椒淋热油']}},
+  /* 粤菜 · 清鲜（5 道） */
+  {id:23, name:'白切鸡', cat:'yue', price:12, ing:24, diff:2, note:'皮爽肉滑，原汁原味',
+   imgs:['assets/dishes/23-main.jpg','assets/dishes/23-detail.jpg'],
+   recipe:{ing:['三黄鸡 1 只','姜 1 块','葱 2 根','盐','花生油'],
+     steps:['鸡洗净，水开下锅浸煮 15 分钟，关火焖 10 分钟','捞出立刻浸冰水，皮脆肉滑','斩件装盘','姜葱剁蓉，加盐浇热油做蘸碟']}},
+  {id:24, name:'豉汁蒸排骨', cat:'yue', price:12, ing:24, diff:2, note:'豉香浓郁，滑嫩脱骨',
+   imgs:['assets/dishes/24-main.jpg','assets/dishes/24-detail.jpg'],
+   recipe:{ing:['肋排 300g','豆豉 1 勺','蒜 4 瓣','生抽、蚝油','淀粉、糖','红椒圈、葱花'],
+     steps:['排骨斩小块，泡水去血','加豆豉蒜末生抽蚝油糖淀粉抓匀腌 20 分钟','大火蒸 18 分钟','出锅点缀红椒圈葱花']}},
+  {id:25, name:'莲藕排骨汤', cat:'yue', price:10, ing:20, diff:1, note:'老火靓汤，清润暖胃',
+   imgs:['assets/dishes/25-main.jpg','assets/dishes/25-detail.jpg'],
+   recipe:{ing:['排骨 400g','莲藕 1 节','姜 4 片','葱 1 根','料酒、盐'],
+     steps:['排骨焯水，莲藕切滚刀块','全部放入砂锅，加姜片料酒，热水没过','小火煲 1.5 小时','加盐，撒葱花']}},
+  {id:26, name:'虾仁滑蛋', cat:'yue', price:12, ing:22, diff:2, note:'嫩滑鲜甜，蛋香四溢',
+   imgs:['assets/dishes/26-main.jpg','assets/dishes/26-detail.jpg'],
+   recipe:{ing:['虾仁 150g','鸡蛋 4 个','牛奶 2 勺','盐','淀粉、油'],
+     steps:['虾仁加盐淀粉腌 10 分钟，滑油变色盛出','鸡蛋打散加牛奶盐','热锅温油倒入蛋液，半凝固时下虾仁','轻推至蛋液刚凝固立即出锅']}},
+  {id:27, name:'白灼菜心', cat:'yue', price:6, ing:8, diff:1, note:'清爽解腻，脆嫩回甘',
+   imgs:['assets/dishes/27-main.jpg','assets/dishes/27-detail.jpg'],
+   recipe:{ing:['菜心 300g','蒜 3 瓣','蒸鱼豉油 2 勺','糖少许','油'],
+     steps:['菜心洗净，水开加盐油，烫 1 分钟捞出','码盘，淋豉油和少许糖','蒜末撒面，浇热油']}},
+  /* 家常菜 · 暖胃（3 道） */
+  {id:28, name:'番茄炒蛋', cat:'jiachang', price:5, ing:8, diff:1, note:'国民家常，酸甜下饭',
+   imgs:['assets/dishes/28-main.jpg','assets/dishes/28-detail.jpg'],
+   recipe:{ing:['番茄 3 个','鸡蛋 3 个','糖 1 勺','盐','葱花、油'],
+     steps:['鸡蛋打散，热油炒至刚凝固盛出','番茄切块，下锅炒出汁','加糖盐，倒回鸡蛋翻匀','撒葱花出锅']}},
+  {id:29, name:'可乐鸡翅', cat:'jiachang', price:10, ing:22, diff:2, note:'甜咸适口，老少皆宜',
+   imgs:['assets/dishes/29-main.jpg','assets/dishes/29-detail.jpg'],
+   recipe:{ing:['鸡翅中 10 个','可乐 1 罐','生抽 1 勺','姜 3 片','盐','熟芝麻'],
+     steps:['鸡翅两面划刀，焯水沥干','少油煎至两面金黄','倒可乐没过，加生抽姜片','小火焖 15 分钟，大火收汁撒芝麻']}},
+  {id:30, name:'手撕包菜', cat:'jiachang', price:6, ing:8, diff:1, note:'爽脆微辣，便宜大碗',
+   imgs:['assets/dishes/30-main.jpg','assets/dishes/30-detail.jpg'],
+   recipe:{ing:['包菜半个','干辣椒 6 个','蒜片 4 瓣','生抽 1 勺','香醋半勺','盐'],
+     steps:['包菜手撕成片，洗净沥干','热油爆香干辣椒蒜片','下包菜大火猛炒至断生','加生抽香醋盐，翻匀出锅']}}
+];
+
+const LS_DISHES  = 'stove_dishes_v2';
+const LS_RECORDS = 'stove_records_v2';
+const LS_DISHES_V1  = 'stove_dishes_v1';
+const LS_RECORDS_V1 = 'stove_records_v1';
+
+/* ===== 状态 ===== */
+let dishes = loadDishes();
+let records = loadRecords();
+let currentFilter = 'all';
+let searchTerm = '';
+let currentCat = 'xiang';
+let currentDiff = 1;
+let modalDishId = null;
+let editDishId = null;
+
+function validCat(c){
+  return CATS[c] ? c : 'jiachang';
+}
+function loadDishes(){
+  try{
+    const raw = localStorage.getItem(LS_DISHES);
+    if(raw){
+      const parsed = JSON.parse(raw);
+      if(Array.isArray(parsed) && parsed.length){
+        /* 兼容旧版数据：用新菜单补齐照片和菜谱，保留用户改过的价格 */
+        const byName = {};
+        RAW_DISHES.forEach(d=>{ byName[d.name] = d; });
+        return parsed.map(d=>{
+          const base = byName[d.name] || {};
+          const recipe = (d.recipe && (d.recipe.ing || d.recipe.steps)) ? d.recipe : (base.recipe || {ing:[],steps:[]});
+          return {
+            id:d.id, name:d.name, cat:validCat(d.cat),
+            price:Number(d.price)||0, ing:Number(d.ing)||0,
+            diff:d.diff||1, note:d.note||(base.note||''),
+            imgs:(d.imgs && d.imgs.length) ? d.imgs : (base.imgs||[]),
+            recipe
+          };
+        });
+      }
+    }
+    /* v1 迁移：换用新菜单，保留旧版里用户自定义的菜 */
+    const old = localStorage.getItem(LS_DISHES_V1);
+    if(old){
+      const parsed = JSON.parse(old);
+      if(Array.isArray(parsed) && parsed.length){
+        const fresh = RAW_DISHES.slice();
+        const names = new Set(fresh.map(d=>d.name));
+        let maxId = 30;
+        parsed.forEach(d=>{
+          if(d && d.name && !names.has(d.name)){
+            maxId += 1;
+            fresh.push({id:maxId, name:d.name, cat:validCat(d.cat), price:Number(d.price)||10, ing:Number(d.ing)||15, diff:d.diff||1, note:d.note||'自选新菜', imgs:[], recipe:{ing:[],steps:[]}});
+          }
+        });
+        return fresh;
+      }
+    }
+  }catch(e){}
+  return RAW_DISHES.slice();
+}
+function loadRecords(){
+  try{
+    const raw = localStorage.getItem(LS_RECORDS);
+    if(raw){
+      const parsed = JSON.parse(raw);
+      if(Array.isArray(parsed)) return parsed;
+    }
+    const old = localStorage.getItem(LS_RECORDS_V1);
+    if(old){
+      const parsed = JSON.parse(old);
+      if(Array.isArray(parsed) && parsed.length){
+        const migrated = parsed.map(r=>({...r, ingFee:Number(r.ingFee)||0}));
+        localStorage.setItem(LS_RECORDS, JSON.stringify(migrated));
+        return migrated;
+      }
+    }
+  }catch(e){}
+  return [];
+}
+function saveDishes(){ localStorage.setItem(LS_DISHES, JSON.stringify(dishes)); }
+function saveRecords(){ localStorage.setItem(LS_RECORDS, JSON.stringify(records)); }
+function nextDishId(){ return Math.max(...dishes.map(d=>d.id), 0) + 1; }
+function dishById(id){ return dishes.find(d=>d.id===id); }
+function catOf(d){ return CATS[validCat(d.cat)]; }
+function countForDish(id){ return records.filter(r=>r.dishId===id).length; }
+function eatenIds(){ return new Set(records.map(r=>r.dishId)); }
+function fmtDate(d){
+  const date = new Date(d + (d.length===10?'T00:00:00':''));
+  return `${date.getFullYear()}.${String(date.getMonth()+1).padStart(2,'0')}.${String(date.getDate()).padStart(2,'0')}`;
+}
+function todayStr(){
+  const n = new Date();
+  return `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}-${String(n.getDate()).padStart(2,'0')}`;
+}
+
+/* ===== Toast ===== */
+let toastTimer = null;
+function toast(msg){
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>el.classList.remove('on'), 2600);
+}
+
+/* ===== 视图切换 ===== */
+const VIEWS = ['menu','record','stats','add'];
+function switchView(v){
+  VIEWS.forEach(k=>{
+    document.getElementById('view-'+k).classList.toggle('on', k===v);
+  });
+  document.querySelectorAll('.tab').forEach(t=>{
+    t.classList.toggle('on', t.dataset.view===v);
+  });
+  if(v==='stats') renderStats();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+document.getElementById('tabs').addEventListener('click', e=>{
+  const tab = e.target.closest('.tab');
+  if(tab) switchView(tab.dataset.view);
+});
+
+/* ===== 动态菜系筛选器 ===== */
+function fillFilters(){
+  const wrap = document.getElementById('filters');
+  const catBtns = Object.entries(CATS).map(([k,v])=>`<button class="fbtn" data-filter="${k}">${v.label} <span class="n" id="fc-${k}"></span></button>`).join('');
+  wrap.innerHTML = `<button class="fbtn on" data-filter="all">全部 <span class="n" id="fc-all"></span></button>${catBtns}<button class="fbtn" data-filter="done">已解锁 <span class="n" id="fc-done"></span></button>`;
+}
+document.getElementById('filters').addEventListener('click', e=>{
+  const btn = e.target.closest('.fbtn');
+  if(!btn) return;
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  currentFilter = btn.dataset.filter;
+  renderMenu();
+});
+
+/* ===== 菜单渲染 ===== */
+function dishCard(d){
+  const eaten = countForDish(d.id);
+  const cat = catOf(d);
+  const hasImg = d.imgs && d.imgs.length;
+  return `
+  <article class="dish ${eaten?'eaten':''}" data-id="${d.id}" style="--cat-color:${cat.color}" tabindex="0" role="button" aria-label="${d.name}，加工费${d.price}元，食材约${d.ing}元">
+    ${hasImg ? `<img class="dish-thumb" src="${d.imgs[0]}" alt="${d.name}" loading="lazy">` : `<div class="dish-thumb ph">${d.name[0]}</div>`}
+    <div class="row1">
+      <span class="cat-tag">${cat.label}</span>
+      <span class="price-block">
+        <button class="edit-price" data-edit="${d.id}" aria-label="调整${d.name}价格"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button>
+        <span class="dish-price"><small>加工费</small> ¥${d.price}</span>
+        <span class="ing-price">食材约 ¥${d.ing}</span>
+      </span>
+    </div>
+    <h3 class="dish-name">${d.name}</h3>
+    <p class="dish-note">${d.note}</p>
+    <div class="row3">
+      <span class="diff">
+        ${[1,2,3].map(i=>`<i class="${i<=d.diff?'on':''}"></i>`).join('')}
+        <span class="diff-lab">${DIFF_LABEL[d.diff]}</span>
+      </span>
+      <span class="dish-state ${eaten?'done':''}">
+        ${eaten ? `<svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>已解锁 ${eaten} 次` : `<svg viewBox="0 0 24 24"><path d="M12 3a5 5 0 0 1 5 5c0 2-1 3-2 4l-1 1.5V16a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2.5L9 12c-1-1-2-2-2-4a5 5 0 0 1 5-5Z"/></svg>待解锁`}
+      </span>
+      <button class="eat-btn" data-eat="${d.id}">打卡</button>
+    </div>
+  </article>`;
+}
+function renderMenu(){
+  const grid = document.getElementById('dishGrid');
+  const empty = document.getElementById('menuEmpty');
+  const eaten = eatenIds();
+  let list = dishes.filter(d=>{
+    if(currentFilter==='done' && !eaten.has(d.id)) return false;
+    if(currentFilter!=='all' && currentFilter!=='done' && d.cat!==currentFilter) return false;
+    if(searchTerm && !d.name.includes(searchTerm)) return false;
+    return true;
+  });
+  grid.innerHTML = list.map(dishCard).join('');
+  empty.style.display = list.length ? 'none' : 'block';
+  document.getElementById('fc-all').textContent = dishes.length;
+  Object.keys(CATS).forEach(k=>{
+    const el = document.getElementById('fc-'+k);
+    if(el) el.textContent = dishes.filter(d=>d.cat===k).length;
+  });
+  document.getElementById('fc-done').textContent = eaten.size;
+}
+document.getElementById('searchInput').addEventListener('input', e=>{
+  searchTerm = e.target.value.trim();
+  renderMenu();
+});
+document.getElementById('dishGrid').addEventListener('click', e=>{
+  const edit = e.target.closest('[data-edit]');
+  if(edit){ e.stopPropagation(); openEditModal(Number(edit.dataset.edit)); return; }
+  const eat = e.target.closest('[data-eat]');
+  if(eat){ e.stopPropagation(); openCheckinModal(Number(eat.dataset.eat)); return; }
+  const card = e.target.closest('.dish');
+  if(card) openDetailModal(Number(card.dataset.id));
+});
+document.getElementById('dishGrid').addEventListener('keydown', e=>{
+  if(e.key==='Enter' && e.target.classList.contains('dish')){
+    openDetailModal(Number(e.target.dataset.id));
+  }
+});
+
+/* ===== 菜品详情弹层 ===== */
+let detailDishId = null;
+let dtIdx = 0;
+function openDetailModal(id){
+  detailDishId = id;
+  const d = dishById(id);
+  if(!d) return;
+  const cat = catOf(d);
+  dtIdx = 0;
+  document.getElementById('dtName').textContent = d.name;
+  const dtCat = document.getElementById('dtCat');
+  dtCat.textContent = cat.label;
+  dtCat.style.setProperty('--cat-color', cat.color);
+  document.getElementById('dtMeta').innerHTML =
+    `<span class="d-price">加工费 ¥${d.price}</span><span class="d-ing">食材约 ¥${d.ing}</span><span>${DIFF_LABEL[d.diff]}</span>`;
+  document.getElementById('dtNote').textContent = d.note;
+  const ing = (d.recipe && d.recipe.ing) || [];
+  document.getElementById('dtIng').innerHTML = ing.length
+    ? ing.map(i=>`<span class="ing-chip">${i}</span>`).join('')
+    : '<span class="ing-chip">食材清单待补充</span>';
+  const steps = (d.recipe && d.recipe.steps) || [];
+  const dtSteps = document.getElementById('dtSteps');
+  dtSteps.innerHTML = steps.length
+    ? steps.map(s=>`<li>${s}</li>`).join('')
+    : '<li>做法待补充</li>';
+  dtSteps.style.setProperty('--cat-color', cat.color);
+  renderGallery(d);
+  document.getElementById('detailMask').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function renderGallery(d){
+  const main = document.getElementById('dtMain');
+  const thumbs = document.getElementById('dtThumbs');
+  const imgs = (d.imgs && d.imgs.length) ? d.imgs : null;
+  if(imgs){
+    main.innerHTML = `<img class="detail-main" src="${imgs[Math.min(dtIdx,imgs.length-1)]}" alt="${d.name}">`;
+    thumbs.innerHTML = imgs.map((s,i)=>`<img class="${i===dtIdx?'on':''}" src="${s}" alt="${d.name} 图${i+1}" data-i="${i}">`).join('');
+  }else{
+    main.innerHTML = `<div class="detail-main ph">${d.name[0]}</div>`;
+    thumbs.innerHTML = '';
+  }
+}
+function closeDetail(){
+  document.getElementById('detailMask').classList.remove('on');
+  document.body.style.overflow = '';
+}
+document.getElementById('dtThumbs').addEventListener('click', e=>{
+  const t = e.target.closest('img');
+  if(!t) return;
+  dtIdx = Number(t.dataset.i);
+  const d = dishById(detailDishId);
+  if(d) renderGallery(d);
+});
+document.getElementById('detailClose').addEventListener('click', closeDetail);
+document.getElementById('detailMask').addEventListener('click', e=>{
+  if(e.target.id==='detailMask') closeDetail();
+});
+document.getElementById('dtCheckin').addEventListener('click', ()=>{
+  if(!detailDishId) return;
+  closeDetail();
+  openCheckinModal(detailDishId);
+});
+
+/* ===== 打卡弹层 ===== */
+function openCheckinModal(dishId){
+  modalDishId = dishId;
+  const d = dishById(dishId);
+  if(!d) return;
+  document.getElementById('modalDishName').textContent = d.name + ' · ' + catOf(d).label;
+  document.getElementById('mDate').value = todayStr();
+  document.getElementById('mPriceHint').innerHTML = priceHintHTML(d);
+  document.getElementById('mComment').value = '';
+  setStars('m', 5);
+  document.getElementById('modalMask').classList.add('on');
+}
+document.getElementById('modalClose').addEventListener('click', ()=>document.getElementById('modalMask').classList.remove('on'));
+document.getElementById('modalMask').addEventListener('click', e=>{
+  if(e.target.id==='modalMask') document.getElementById('modalMask').classList.remove('on');
+});
+document.getElementById('editClose').addEventListener('click', ()=>document.getElementById('editMask').classList.remove('on'));
+document.getElementById('editMask').addEventListener('click', e=>{
+  if(e.target.id==='editMask') document.getElementById('editMask').classList.remove('on');
+});
+
+/* ===== 价格编辑 ===== */
+function openEditModal(id){
+  editDishId = id;
+  const d = dishById(id);
+  if(!d) return;
+  document.getElementById('editDishName').textContent = d.name + ' · ' + catOf(d).label;
+  document.getElementById('edPrice').value = d.price;
+  document.getElementById('edIng').value = d.ing;
+  document.getElementById('editMask').classList.add('on');
+}
+document.getElementById('editForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const d = dishById(editDishId);
+  if(!d) return;
+  d.price = Math.max(0, Math.round(Number(document.getElementById('edPrice').value)||0));
+  d.ing = Math.max(0, Math.round(Number(document.getElementById('edIng').value)||0));
+  saveDishes();
+  renderMenu(); fillCheckinSelect(); renderHeroStats();
+  document.getElementById('editMask').classList.remove('on');
+  toast(`已更新「${d.name}」：加工费 ¥${d.price} · 食材费 ¥${d.ing}`);
+});
+
+/* ===== 星星组件（两套） ===== */
+function bindStars(prefix){
+  document.getElementById(prefix+'Stars').addEventListener('click', e=>{
+    const b = e.target.closest('.star');
+    if(!b) return;
+    setStars(prefix, Number(b.dataset.v));
+  });
+}
+function setStars(prefix, v){
+  document.querySelectorAll('#'+prefix+'Stars .star').forEach(s=>{
+    s.classList.toggle('on', Number(s.dataset.v)<=v);
+  });
+  window['_star_'+prefix] = v;
+}
+bindStars('ci');
+bindStars('m');
+
+/* ===== 打卡提交 ===== */
+function priceHintHTML(d){
+  return `
+    <div class="row"><span>加工费 <b>¥${d.price}</b></span><span class="ing">食材费 ¥${d.ing}</span></div>
+    <div class="total">合计 ¥${d.price + d.ing} · 打卡后自动入账</div>`;
+}
+function addRecord(dishId, date, rating, comment, source){
+  const d = dishById(dishId);
+  if(!d) return;
+  records.push({id:Date.now(), dishId, date, rating, comment:comment.trim(), fee:d.price, ingFee:d.ing, ts:Date.now()});
+  saveRecords();
+  renderMenu();
+  renderRecordTab();
+  renderHeroStats();
+  if(source==='modal') document.getElementById('modalMask').classList.remove('on');
+  const praise = ['太香了，大厨辛苦','这一顿满分，记在账上','锅气就是家的味道','好吃到跺脚，感谢投喂','烟火气拉满，爱已到账'];
+  toast(`已记下「${d.name}」，加工费 ¥${d.price} + 食材 ¥${d.ing}。${praise[Math.floor(Math.random()*praise.length)]}`);
+  setStars('ci', 5);
+}
+document.getElementById('checkinForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const dishId = Number(document.getElementById('ciDish').value);
+  const date = document.getElementById('ciDate').value || todayStr();
+  const rating = window._star_ci || 5;
+  const comment = document.getElementById('ciComment').value;
+  addRecord(dishId, date, rating, comment, 'form');
+});
+document.getElementById('modalForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  if(!modalDishId) return;
+  const date = document.getElementById('mDate').value || todayStr();
+  const rating = window._star_m || 5;
+  const comment = document.getElementById('mComment').value;
+  addRecord(modalDishId, date, rating, comment, 'modal');
+});
+document.getElementById('ciDish').addEventListener('change', e=>{
+  const d = dishById(Number(e.target.value));
+  if(d) document.getElementById('ciPriceHint').innerHTML = priceHintHTML(d);
+});
+function fillCheckinSelect(){
+  const sel = document.getElementById('ciDish');
+  sel.innerHTML = dishes.map(d=>`<option value="${d.id}">${d.name}（${catOf(d).label}·加工¥${d.price}/食材¥${d.ing}）</option>`).join('');
+  sel.value = dishes[0].id;
+  document.getElementById('ciDate').value = todayStr();
+  const d = dishById(dishes[0].id);
+  document.getElementById('ciPriceHint').innerHTML = priceHintHTML(d);
+  setStars('ci', 5);
+}
+
+/* ===== 记录渲染 ===== */
+function renderRecordTab(){
+  const tl = document.getElementById('timeline');
+  const empty = document.getElementById('recEmpty');
+  const cnt = document.getElementById('recCount');
+  document.getElementById('tabRecordCnt').textContent = records.length;
+  cnt.textContent = records.length + ' 条';
+  if(!records.length){
+    tl.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  const sorted = records.slice().sort((a,b)=> b.date.localeCompare(a.date) || b.ts-a.ts);
+  tl.innerHTML = sorted.map(r=>{
+    const d = dishById(r.dishId);
+    if(!d) return '';
+    const cat = catOf(d);
+    return `
+    <div class="tl-item">
+      <div class="tl-card">
+        <div class="tl-head">
+          <span class="tl-name">${d.name}</span>
+          <span class="tl-date">${fmtDate(r.date)}</span>
+        </div>
+        <div class="tl-mid">
+          <span class="tl-cat" style="--cat-color:${cat.color}">${cat.label}</span>
+          <span class="tl-stars">${[1,2,3,4,5].map(i=>`<svg class="${i<=r.rating?'':'off'}" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 9.7l5.9-.9z"/></svg>`).join('')}</span>
+          <span class="tl-fees"><span class="tl-fee">加工 ¥${r.fee}</span><span class="tl-fee ing">食材 ¥${r.ingFee||0}</span></span>
+        </div>
+        ${r.comment?`<p class="tl-comment">${r.comment}</p>`:''}
+        <div class="tl-actions">
+          <button data-del="${r.id}"><svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M7 7l1 13h8l1-13"/></svg>删除这条</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+document.getElementById('timeline').addEventListener('click', e=>{
+  const del = e.target.closest('[data-del]');
+  if(!del) return;
+  const id = Number(del.dataset.del);
+  const r = records.find(x=>x.id===id);
+  if(!r) return;
+  const d = dishById(r.dishId);
+  records = records.filter(x=>x.id!==id);
+  saveRecords();
+  renderRecordTab();
+  renderMenu();
+  renderHeroStats();
+  toast(`已删除「${d?d.name:'这条'}」的记录`);
+});
+
+/* ===== Hero 统计 ===== */
+function renderHeroStats(){
+  const eaten = eatenIds();
+  const fee = records.reduce((s,r)=>s+r.fee,0);
+  const ing = records.reduce((s,r)=>s+(r.ingFee||0),0);
+  const total = dishes.length;
+  document.getElementById('hs-unlock').textContent = eaten.size + '/' + total;
+  document.getElementById('hs-fee').textContent = '¥' + fee;
+  document.getElementById('hs-ing').textContent = '¥' + ing;
+  document.getElementById('hs-times').textContent = records.length;
+  document.getElementById('progFill').style.width = (eaten.size/total*100)+'%';
+  document.getElementById('progLab').textContent = `已解锁 ${eaten.size} 道 · 还有 ${total-eaten.size} 道等你`;
+  document.getElementById('progPct').textContent = Math.round(eaten.size/total*100) + '%';
+  document.getElementById('tabMenuCnt').textContent = total;
+}
+/* ===== 随机点菜 ===== */
+document.getElementById('surpriseBtn').addEventListener('click', ()=>{
+  const eaten = eatenIds();
+  const undone = dishes.filter(d=>!eaten.has(d.id));
+  if(!undone.length){
+    toast('菜单已全部解锁！快加新菜吧');
+    return;
+  }
+  const pick = undone[Math.floor(Math.random()*undone.length)];
+  toast(`今天来道「${pick.name}」吧 · 加工费 ¥${pick.price} + 食材约 ¥${pick.ing}，等大厨出手`);
+});
+/* ===== 统计视图（ECharts） ===== */
+let charts = {};
+function initChart(id){
+  if(charts[id]) return charts[id];
+  const el = document.getElementById(id);
+  if(typeof echarts==='undefined' || !el){
+    return null;
+  }
+  const c = echarts.init(el);
+  charts[id] = c;
+  return c;
+}
+const AXIS = {axisLine:{lineStyle:{color:'#D9C9B0'}},axisLabel:{color:'#7A6A58',fontSize:11},splitLine:{lineStyle:{color:'#F0E6D6'}}};
+function renderStats(){
+  const eaten = eatenIds();
+  const fee = records.reduce((s,r)=>s+r.fee,0);
+  const ing = records.reduce((s,r)=>s+(r.ingFee||0),0);
+  const total = dishes.length;
+  document.getElementById('st-unlock').textContent = eaten.size;
+  document.getElementById('st-fee').textContent = '¥' + fee;
+  document.getElementById('st-ing').textContent = '¥' + ing;
+  document.getElementById('st-times').textContent = records.length;
+  document.getElementById('st-left').textContent = total - eaten.size;
+  const avg = records.length ? (records.reduce((s,r)=>s+r.rating,0)/records.length) : null;
+  document.getElementById('st-avg').textContent = avg ? avg.toFixed(1) : '—';
+
+  /* 钱包流水：加工费 + 食材费双累计曲线 */
+  const sorted = records.slice().sort((a,b)=>a.date.localeCompare(b.date)||a.ts-b.ts);
+  let cumFee = 0, cumIng = 0;
+  const xs = sorted.map((_,i)=>'第'+(i+1)+'顿');
+  const yFee = sorted.map(r=>cumFee += r.fee);
+  const yIng = sorted.map(r=>cumIng += (r.ingFee||0));
+  const c1 = initChart('chartFee');
+  if(c1) c1.setOption({
+    tooltip:{trigger:'axis',formatter:ps=>{
+      let s = ps[0].axisValue + '<br/>';
+      ps.forEach(p=>{ s += `${p.marker}${p.seriesName} <b>¥${p.value}</b><br/>`; });
+      return s;
+    }},
+    legend:{data:['加工费','食材费'],top:0,right:6,textStyle:{color:'#7A6A58',fontSize:11},itemWidth:14,itemHeight:8},
+    grid:{left:52,right:18,top:30,bottom:30},
+    xAxis:{type:'category',data:xs,boundaryGap:false,...AXIS,axisLabel:{color:'#7A6A58',fontSize:11,interval:'auto'}},
+    yAxis:{type:'value',...AXIS},
+    series:[
+      {name:'加工费',type:'line',data:yFee,smooth:true,symbolSize:5,lineStyle:{width:3,color:'#C2402E'},itemStyle:{color:'#C2402E'},areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(194,64,46,.22)'},{offset:1,color:'rgba(194,64,46,.02)'}])}},
+      {name:'食材费',type:'line',data:yIng,smooth:true,symbolSize:5,lineStyle:{width:2,color:'#4A7C59',type:'dashed'},itemStyle:{color:'#4A7C59'}}
+    ]
+  }, true);
+
+  /* TOP5 */
+  const cntMap = {};
+  records.forEach(r=>{ cntMap[r.dishId] = (cntMap[r.dishId]||0)+1; });
+  const top = Object.entries(cntMap).sort((a,b)=>b[1]-a[1]).slice(0,5)
+    .map(([id,n])=>({name:(dishById(Number(id))||{name:'已删除的菜'}).name,n}));
+  const c2 = initChart('chartTop');
+  if(c2) c2.setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:p=>`${p[0].name}<br/>吃过 <b>${p[0].value} 次</b>`},
+    grid:{left:88,right:26,top:18,bottom:26},
+    xAxis:{type:'value',...AXIS,splitLine:{show:false}},
+    yAxis:{type:'category',data:top.map(t=>t.name).reverse(),...AXIS,axisLabel:{color:'#3A2B21',fontSize:13}},
+    series:[{
+      type:'bar',barWidth:14,
+      data:top.map(t=>t.n).reverse(),
+      itemStyle:{color:new echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:'#4A7C59'},{offset:1,color:'#D9A441'}]),borderRadius:[0,7,7,0]},
+      label:{show:true,position:'right',color:'#7A6A58',fontSize:12}
+    }]
+  }, true);
+
+  /* 各菜系解锁进度（堆叠条形） */
+  const catKeys = Object.keys(CATS);
+  const doneArr = catKeys.map(k=>dishes.filter(d=>d.cat===k && eaten.has(d.id)).length);
+  const leftArr = catKeys.map((k,i)=>dishes.filter(d=>d.cat===k).length - doneArr[i]);
+  const c3 = initChart('chartCat');
+  if(c3) c3.setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:ps=>{
+      const i = ps[0].dataIndex;
+      return `${CATS[catKeys[catKeys.length-1-i]].label}<br/>已解锁 <b>${doneArr[catKeys.length-1-i]}</b> 道 / 共 ${doneArr[catKeys.length-1-i]+leftArr[catKeys.length-1-i]} 道`;
+    }},
+    legend:{data:['已解锁','待解锁'],top:0,right:6,textStyle:{color:'#7A6A58',fontSize:11},itemWidth:14,itemHeight:8},
+    grid:{left:104,right:28,top:26,bottom:24},
+    xAxis:{type:'value',...AXIS,splitLine:{show:false}},
+    yAxis:{type:'category',data:catKeys.slice().reverse().map(k=>CATS[k].label),...AXIS,axisLabel:{color:'#3A2B21',fontSize:13}},
+    series:[
+      {name:'已解锁',type:'bar',stack:'a',barWidth:15,
+       data:doneArr.slice().reverse(),
+       itemStyle:{color:'#D9A441'},
+       label:{show:true,position:'insideRight',color:'#6E4F17',fontSize:11,formatter:p=>p.value>0?p.value:''}},
+      {name:'待解锁',type:'bar',stack:'a',barWidth:15,
+       data:leftArr.slice().reverse(),
+       itemStyle:{color:'#F0E6D6'}}
+    ]
+  }, true);
+}
+
+/* ===== 加菜 ===== */
+function fillCatPick(){
+  const cp = document.getElementById('catPick');
+  cp.innerHTML = Object.entries(CATS).map(([k,v])=>`<button type="button" data-cat="${k}" ${k==='xiang'?'class="on"':''} style="--cat-color:${v.color}">${v.label}</button>`).join('');
+}
+document.getElementById('catPick').addEventListener('click', e=>{
+  const b = e.target.closest('button');
+  if(!b) return;
+  currentCat = b.dataset.cat;
+  document.querySelectorAll('#catPick button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+});
+document.getElementById('adDiff').addEventListener('click', e=>{
+  const b = e.target.closest('button');
+  if(!b) return;
+  currentDiff = Number(b.dataset.d);
+  document.querySelectorAll('#adDiff button').forEach(x=>x.classList.toggle('on', x===b));
+});
+document.getElementById('addForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const name = document.getElementById('adName').value.trim();
+  const price = Math.round(Number(document.getElementById('adPrice').value));
+  const ing = Math.round(Number(document.getElementById('adIng').value));
+  const note = document.getElementById('adNote').value.trim();
+  const recipeRaw = document.getElementById('adRecipe').value.trim();
+  if(!name){ toast('给这道菜起个名字吧'); return; }
+  if(!price || price<0){ toast('加工费要填一个数哦'); return; }
+  if(dishes.some(d=>d.name===name)){
+    toast('菜单里已经有这道菜啦');
+    return;
+  }
+  const recipe = recipeRaw
+    ? {ing:[], steps: recipeRaw.split('\n').map(s=>s.replace(/^\s*\d+[.、)\s]+/,'').trim()).filter(Boolean)}
+    : {ing:[], steps:[]};
+  dishes.push({id:nextDishId(), name, cat:currentCat, price:price, ing:ing||0, diff:currentDiff, note:note||'自选新菜，等你解锁', imgs:[], recipe});
+  saveDishes();
+  renderMenu();
+  fillCheckinSelect();
+  renderHeroStats();
+  document.getElementById('addForm').reset();
+  currentCat='xiang'; currentDiff=1;
+  document.querySelectorAll('#catPick button').forEach((x,i)=>x.classList.toggle('on', i===0));
+  document.querySelectorAll('#adDiff button').forEach((x,i)=>x.classList.toggle('on', i===0));
+  toast(`「${name}」已加入菜单，加工费 ¥${price} · 食材费 ¥${ing||0}`);
+});
+
+/* ===== 导出 / 导入 ===== */
+document.getElementById('exportBtn').addEventListener('click', ()=>{
+  const data = {app:'她的小灶台', version:2, exportedAt:new Date().toISOString(), dishes, records};
+  const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `她的小灶台备份-${todayStr()}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+  toast('备份已导出，记得保存好这份文件');
+});
+document.getElementById('importBtn').addEventListener('click', ()=>{
+  document.getElementById('importFile').click();
+});
+document.getElementById('importFile').addEventListener('change', e=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    try{
+      const data = JSON.parse(reader.result);
+      if(!data || typeof data!=='object' || !Array.isArray(data.dishes) || !Array.isArray(data.records)){
+        toast('文件格式不对，请选择本工具导出的备份');
+        return;
+      }
+      /* 合并导入：菜按名字去重，记录按 id 去重；兼容旧备份 */
+      const existingNames = new Set(dishes.map(d=>d.name));
+      data.dishes.forEach(d=>{
+        if(d && d.name && !existingNames.has(d.name) && d.cat && d.price){
+          existingNames.add(d.name);
+          dishes.push({id:nextDishId(), name:d.name, cat:validCat(d.cat), price:Number(d.price)||0, ing:Number(d.ing)||0, diff:d.diff||1, note:d.note||''});
+        }
+      });
+      const existingIds = new Set(records.map(r=>r.id));
+      data.records.forEach(r=>{
+        if(r && r.dishId && dishById(r.dishId) && !existingIds.has(r.id)){
+          existingIds.add(r.id);
+          records.push({...r, ingFee:Number(r.ingFee)||0});
+        }
+      });
+      saveDishes(); saveRecords();
+      renderMenu(); renderRecordTab(); renderHeroStats(); fillCheckinSelect();
+      toast(`导入完成：菜单 ${dishes.length} 道菜，记录 ${records.length} 条`);
+    }catch(err){
+      toast('读取失败，文件可能已损坏');
+    }
+    e.target.value = '';
+  };
+  reader.readAsText(file);
+});
+
+/* ===== 初始化 ===== */
+function init(){
+  fillFilters();
+  fillCatPick();
+  fillCheckinSelect();
+  renderMenu();
+  renderRecordTab();
+  renderHeroStats();
+  setStars('ci', 5);
+  setStars('m', 5);
+}
+init();
+</script>
+</body>
+</html>
